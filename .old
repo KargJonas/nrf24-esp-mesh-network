@@ -1,0 +1,60 @@
+#include <Servo.h>
+#include <Wire.h>
+
+const int MPU = 0x68;
+int16_t AcX, AcY, AcZ, Tmp, GyX, GyY, GyZ;
+Servo servo;
+
+double servoPosition = 0;
+double oldServoPosition = servoPosition;
+
+void setup()
+{
+  Wire.begin();
+  Wire.beginTransmission(MPU);
+  Wire.write(0x6B);
+  Wire.write(0);
+  Wire.endTransmission(true);
+
+  servo.attach(14);
+  Serial.begin(115200);
+}
+void loop()
+{
+  Wire.beginTransmission(MPU);
+  Wire.write(0x3B);
+  Wire.endTransmission(false);
+  Wire.requestFrom(MPU, 12, true);
+  // GyX = Wire.read() << 8 | Wire.read();
+  // GyY = Wire.read() << 8 | Wire.read();
+  GyZ = Wire.read() << 8 | Wire.read();
+  // AcX = Wire.read() << 8 | Wire.read();
+  // AcY = Wire.read() << 8 | Wire.read();
+  // AcZ = Wire.read() << 8 | Wire.read();
+
+  // // Serial.print(AcX);
+  // // Serial.print(" ");
+  // // Serial.print(AcY);
+  // // Serial.print(" ");
+  // // Serial.print(AcZ);
+  // // Serial.print(" ");
+
+  // Serial.print(GyX);
+  // Serial.print(" ");
+  // Serial.print(GyY);
+  // Serial.print(" ");
+
+  servoPosition = abs((GyZ / 20000.0) * 180);
+  // Serial.print(oldServoPosition - servoPosition);
+  // Serial.print("  ");
+
+  servo.write(servoPosition);
+  delay(50);
+
+  // servo.write(0);
+  // delay(1000);
+  // servo.write(180);
+  // delay(1000);
+
+  oldServoPosition = servoPosition;
+}
