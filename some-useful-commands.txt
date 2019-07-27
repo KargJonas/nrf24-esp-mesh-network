@@ -1,2 +1,0 @@
-make upload clean
-jpnevulator --ascii --tty /dev/ttyUSB0 --read 
