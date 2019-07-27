@@ -59,7 +59,8 @@ A great tool for developing with the ESP8266 is **PlatformIO**.<br>
 ## References/Resources:
 https://tmrh20.github.io/RF24Mesh<br>
 https://tmrh20.github.io/RF24Network<br>
-https://tmrh20.github.io/RF24Mesh<br>
+https://tmrh20.github.io/RF24Mesh<br> (not sure if I want to use that one - I want a flat network)
+
 https://en.wikipedia.org/wiki/Serial_Peripheral_Interface<br>
 https://techtutorialsx.com/2017/01/21/esp8266-watchdog-functions/<br>
 https://platformio.org/<br>

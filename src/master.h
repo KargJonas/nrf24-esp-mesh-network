@@ -13,10 +13,12 @@
 #include "RF24Network.h"
 #include <SPI.h>
 #include <EEPROM.h>
+
 /***** Configure the chosen CE,CS pins *****/
 RF24 radio(D4, D8);
 RF24Network network(radio);
 RF24Mesh mesh(radio, network);
+
 uint32_t displayTimer = 0;
 
 void setup()
@@ -61,12 +63,14 @@ void loop()
     displayTimer = millis();
     Serial.println(" ");
     Serial.println(F("********Assigned Addresses********"));
+
     for (int i = 0; i < mesh.addrListTop; i++) {
       Serial.print("NodeID: ");
       Serial.print(mesh.addrList[i].nodeID);
       Serial.print(" RF24Network Address: 0");
       Serial.println(mesh.addrList[i].address, OCT);
     }
+
     Serial.println(F("**********************************"));
   }
 }
