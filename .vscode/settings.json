@@ -1,0 +1,10 @@
+{
+  "terminal.integrated.env.linux": {
+    "PATH": "/home/jonas/.platformio/penv/bin:/home/jonas/.platformio/penv:/home/jonas/.cargo/bin:/home/jonas/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/jonas/.dotnet/tools",
+    "PLATFORMIO_CALLER": "vscode"
+  },
+  "cSpell.words": [
+    "mirf",
+    "println"
+  ]
+}
