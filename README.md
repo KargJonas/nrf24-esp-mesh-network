@@ -42,6 +42,11 @@ The nRFs are connected to ESPs via the hardware SPI interface.<br>
 
 <b>🚨 IMPORTANT: D8 must pulled low using a ~4.75k Ohm resistor to enable hardware serial. 🚨</b>
 
+```cpp
+// D4 and D8 are the "interesting" pins.
+RF24 radio(D4, D8);
+```
+
 ## Other notes:
 The ESP8266 has a Watch-Dog-Timer (WDT), which aims to prevent the board from freezing in e.g. a "endless" loop. To prevent the timer from expiring and thus resetting the ESP, you have to either disable it using `ESP.wdtDisable();`, adjust it for your purposes with `ESP.wdtEnable(MILLISECOND_AMOUNT);` or just calling `yield();` every once in a while (`yield()` is also called after every `loop()`);<br>
 Watch out for blocking operations in the libraries you use (e.g. `NRF24.waitAvailable()`).<br>
