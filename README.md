@@ -18,15 +18,42 @@ Pessimistic battery-runtime: (400mAh * 0.8)  / (15mA + 170mA + 12mA) = ~1.6h<br>
 Optimistic battery-runtime:  (2400mAh * 0.9) / (4mA + 80mA + 0mA)    = ~25.7h<br>
 Realistic battery-runtime:   (1.6h + 25.7h)  / 2                     = ~13.7h
 
-### Configuration:
+## Configuration:
 I expect a range of 400-700m between two of the Nrf24 chips and a range of ~8m for the ESP8266s. The idea is to provide a (pretty slow) LAN network by connecting the Nrf24s with each other and using the ESPs, which would each be physically connected to a NRF, as access points for regular WiFi devices. I expect a data transfer speed of around 1-2mBit. Each one of the nodes is configured as master/slave => flat hierarchy.
 
-### Potential issues:
+## Potential issues:
 - Interference (ESP/NRF/power-supply) => Shielding / Input voltage smoothing?
 - Batteries/PS - Amperage/Voltage
 - Lower-than-expected transfer speeds (various reasons)
 
-### ToDo:
+## Hardware setup (used for testing):
+I am using two NodeMCU dev boards, each with their own nRF24-L01 chip, for testing.<b>
+The nRFs are connected to ESPs via the hardware SPI interface.<br>
+| NRF24-L01 | NodeMCU |
+| --------- | ------- |
+| GND       | GND     |
+| VCC       | VCC     |
+| CE        | D4      |
+| SCK       | D5      |
+| MISO      | D6      |
+| MOSI      | D7      |
+| CSN       | D8      |
+<span style="color: darkred; text-decoration: underline;">IMPORTANT: D8 must pulled low using a ~4.75k Ohm resistor to enable hardware serial.</span>
+
+## Other notes:
+The ESP8266 has a Watch-Dog-Timer (WDT), which aims to prevent the board from freezing in e.g. a "endless" loop. To prevent the timer from expiring and thus resetting the ESP, you have to either disable it using `ESP.wdtDisable();`, adjust it for your purposes with `ESP.wdtEnable(MILLISECOND_AMOUNT);` or just calling `yield();` every once in a while (`yield()` is also called after every `loop()`);<br>
+Watch out for blocking operations in the libraries you use (e.g. `NRF24.waitAvailable()`).<br>
+A great tool for developing with the ESP8266 is **PlatformIO**.<br>
+
+## References/Resources:
+https://tmrh20.github.io/RF24/index.html<br>
+https://tmrh20.github.io/RF24Mesh/index.html<br>
+https://en.wikipedia.org/wiki/Serial_Peripheral_Interface<br>
+https://techtutorialsx.com/2017/01/21/esp8266-watchdog-functions/<br>
+https://platformio.org/<br>
+https://docs.platformio.org/en/latest/boards/espressif8266/nodemcuv2.html?highlight=nodemcu<br>
+
+## ToDo:
 - Plan layout in case for min interference
 - Waterproofing
   - Do I even care about that? (yeah - at least a bit of waterproofing..)
