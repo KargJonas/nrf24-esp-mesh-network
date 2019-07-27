@@ -1,6 +1,6 @@
 {
   "terminal.integrated.env.linux": {
-    "PATH": "/home/jonas/.platformio/penv/bin:/home/jonas/.platformio/penv:/home/jonas/.cargo/bin:/home/jonas/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/jonas/.dotnet/tools",
+    "PATH": "/home/jonas/.platformio/penv/bin:/home/jonas/.platformio/penv:/home/jonas/.nvm/versions/node/v11.10.0/bin:/bin/lscript:/bin/lscript:/home/linuxbrew/.linuxbrew/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin",
     "PLATFORMIO_CALLER": "vscode"
   },
   "cSpell.words": [

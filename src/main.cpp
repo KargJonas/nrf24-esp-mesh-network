@@ -1,8 +1,8 @@
-// #define board 0 // server
-#define board 1 // client
+// #define board 0 // master
+#define board 1 // slave
 
 #if board == 0
-  #include "./server.h"
+  #include "./master.h"
 #elif board == 1
-  #include "./client.h"
+  #include "./slave.h"
 #endif

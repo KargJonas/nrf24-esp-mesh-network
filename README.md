@@ -19,7 +19,11 @@ Optimistic battery-runtime:  (2400mAh * 0.9) / (4mA + 80mA + 0mA)    = ~25.7h<br
 Realistic battery-runtime:   (1.6h + 25.7h)  / 2                     = ~13.7h
 
 ## Configuration:
-I expect a range of 400-700m between two of the Nrf24 chips and a range of ~8m for the ESP8266s. The idea is to provide a (pretty slow) LAN network by connecting the Nrf24s with each other and using the ESPs, which would each be physically connected to a NRF, as access points for regular WiFi devices. I expect a data transfer speed of around 1-2mBit. Each one of the nodes is configured as master/slave => flat hierarchy.
+I expect a range of 400-700m between two of the Nrf24 chips and a range of ~8m for the ESP8266s. The idea is to provide a (pretty slow) LAN network by connecting the Nrf24s with each other and using the ESPs, which would each be physically connected to a NRF, as access points for regular WiFi devices. I expect a data transfer speed of around 1-2mBit.
+
+https://tmrh20.github.io/RF24Mesh<br>
+https://tmrh20.github.io/RF24Network<br>
+https://tmrh20.github.io/RF24Mesh<br>
 
 ## Potential issues:
 - Interference (ESP/NRF/power-supply) => Shielding / Input voltage smoothing?
@@ -53,8 +57,9 @@ Watch out for blocking operations in the libraries you use (e.g. `NRF24.waitAvai
 A great tool for developing with the ESP8266 is **PlatformIO**.<br>
 
 ## References/Resources:
-https://tmrh20.github.io/RF24/index.html<br>
-https://tmrh20.github.io/RF24Mesh/index.html<br>
+https://tmrh20.github.io/RF24Mesh<br>
+https://tmrh20.github.io/RF24Network<br>
+https://tmrh20.github.io/RF24Mesh<br>
 https://en.wikipedia.org/wiki/Serial_Peripheral_Interface<br>
 https://techtutorialsx.com/2017/01/21/esp8266-watchdog-functions/<br>
 https://platformio.org/<br>
