@@ -29,6 +29,7 @@ I expect a range of 400-700m between two of the Nrf24 chips and a range of ~8m f
 ## Hardware setup (used for testing):
 I am using two NodeMCU dev boards, each with their own nRF24-L01 chip, for testing.<b>
 The nRFs are connected to ESPs via the hardware SPI interface.<br>
+
 | NRF24-L01 | NodeMCU |
 | --------- | ------- |
 | GND       | GND     |
@@ -38,7 +39,8 @@ The nRFs are connected to ESPs via the hardware SPI interface.<br>
 | MISO      | D6      |
 | MOSI      | D7      |
 | CSN       | D8      |
-<span style="color: darkred; text-decoration: underline;">IMPORTANT: D8 must pulled low using a ~4.75k Ohm resistor to enable hardware serial.</span>
+
+<b>🚨 IMPORTANT: D8 must pulled low using a ~4.75k Ohm resistor to enable hardware serial. 🚨</b>
 
 ## Other notes:
 The ESP8266 has a Watch-Dog-Timer (WDT), which aims to prevent the board from freezing in e.g. a "endless" loop. To prevent the timer from expiring and thus resetting the ESP, you have to either disable it using `ESP.wdtDisable();`, adjust it for your purposes with `ESP.wdtEnable(MILLISECOND_AMOUNT);` or just calling `yield();` every once in a while (`yield()` is also called after every `loop()`);<br>
