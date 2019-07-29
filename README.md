@@ -32,7 +32,7 @@ https://tmrh20.github.io/RF24Mesh<br>
 
 ## Hardware setup (used for testing):
 I am using two NodeMCU dev boards, each with their own nRF24-L01 chip, for testing.<b>
-The nRFs are connected to ESPs via the hardware SPI interface.<br>
+The nRFs are connected to the ESPs via the hardware SPI interface.</b><br>
 
 | NRF24-L01 | NodeMCU |
 | --------- | ------- |
