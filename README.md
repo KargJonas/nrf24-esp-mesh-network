@@ -77,3 +77,6 @@ https://docs.platformio.org/en/latest/boards/espressif8266/nodemcuv2.html?highli
   - Connection
     - How many nodes
     - Packet loss
+- Wiring
+  - Circuit diagram
+  - Design a PCB
