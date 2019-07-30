@@ -8,7 +8,7 @@
 - 1x Adjustable step down converter => ~4.5V to 3.3V [ Advertised efficiency: 97% expected efficiency: 80-90% ]
 - 3x AA Battery + Holder => connected in series to reach ~4.5V [ 400 - 2400mAh (* ~0.9 because of efficiency of step down converter) ]
 - 1x 2-Position power switch
-- 2x momentary push button => Wake display / GUI input
+- 1x momentary push button => Wake display / GUI input
 - 1x piezo buzzer for locating the devices or indicating an error/battery-low state.
 
 Expected cost for 4pcs: ~30\$.<br>
