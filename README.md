@@ -31,6 +31,8 @@ https://tmrh20.github.io/RF24Mesh<br>
 - Interference (ESP/NRF/power-supply) => Shielding / Input voltage smoothing?
 - Batteries/PS - Amperage/Voltage
 - Lower-than-expected transfer speeds (various reasons)
+- How would I even send network traffic over the NRFs?
+  - MAC/IP-addresses?
 
 ## Hardware setup (used for testing):
 I am using two NodeMCU dev boards, each with their own nRF24-L01 chip, for testing.<b>
@@ -61,12 +63,14 @@ A great tool for developing with the ESP8266 is **PlatformIO**.<br>
 ## References/Resources:
 https://tmrh20.github.io/RF24Mesh<br>
 https://tmrh20.github.io/RF24Network<br>
-https://tmrh20.github.io/RF24Mesh<br> (not sure if I want to use that one - I want a flat network)
+https://tmrh20.github.io/RF24Mesh (Probably not going to use this lib - I want a flat network)
 
 https://en.wikipedia.org/wiki/Serial_Peripheral_Interface<br>
 https://techtutorialsx.com/2017/01/21/esp8266-watchdog-functions/<br>
 https://platformio.org/<br>
 https://docs.platformio.org/en/latest/boards/espressif8266/nodemcuv2.html?highlight=nodemcu<br>
+https://easyeda.com<br>
+"dia" - Diagram tool
 
 ## Prototype Schematics and PCB
 ![Schematics](media/schematic.png)
