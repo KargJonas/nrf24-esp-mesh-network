@@ -8,7 +8,7 @@
 - 1x Adjustable step down converter => ~4.5V to 3.3V [ Advertised efficiency: 97% expected efficiency: 80-90% ]
 - 3x AA Battery + Holder => connected in series to reach ~4.5V [ 400 - 2400mAh (* ~0.9 because of efficiency of step down converter) ]
 - 1x 2-Position power switch
-- 2x momentary push button => Wake display / GUI input
+- 1x momentary push button => Wake display / GUI input
 - 1x piezo buzzer for locating the devices or indicating an error/battery-low state.
 
 Expected cost for 4pcs: ~30\$.<br>
@@ -34,7 +34,7 @@ https://tmrh20.github.io/RF24Mesh<br>
 
 ## Hardware setup (used for testing):
 I am using two NodeMCU dev boards, each with their own nRF24-L01 chip, for testing.<b>
-The nRFs are connected to ESPs via the hardware SPI interface.<br>
+The nRFs are connected to the ESPs via the hardware SPI interface.</b><br>
 
 | NRF24-L01 | NodeMCU |
 | --------- | ------- |
@@ -83,3 +83,6 @@ https://docs.platformio.org/en/latest/boards/espressif8266/nodemcuv2.html?highli
   - Connection
     - How many nodes
     - Packet loss
+- Wiring
+  - Circuit diagram
+  - Design a PCB
