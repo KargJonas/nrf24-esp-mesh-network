@@ -25,6 +25,8 @@ https://tmrh20.github.io/RF24Mesh<br>
 https://tmrh20.github.io/RF24Network<br>
 https://tmrh20.github.io/RF24Mesh<br>
 
+![Diagram](media/diagram.png)
+
 ## Potential issues:
 - Interference (ESP/NRF/power-supply) => Shielding / Input voltage smoothing?
 - Batteries/PS - Amperage/Voltage
@@ -65,6 +67,10 @@ https://en.wikipedia.org/wiki/Serial_Peripheral_Interface<br>
 https://techtutorialsx.com/2017/01/21/esp8266-watchdog-functions/<br>
 https://platformio.org/<br>
 https://docs.platformio.org/en/latest/boards/espressif8266/nodemcuv2.html?highlight=nodemcu<br>
+
+## Prototype Schematics and PCB
+![Schematics](media/schematic.png)
+![PCB](media/pcb.png)
 
 ## ToDo:
 - Plan layout in case for min interference
