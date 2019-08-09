@@ -1,11 +1,10 @@
 # nRF24-L01 + ESP8266 Mesh Network
 
 ## I plan on building a mesh network consisting of four nodes, each equipped with the following hardware:
-- 1x Nrf24-L01 2.4GHz transceiver with antenna [ 0.0009 - 15mA ]
-- 1x Nrf24 base module for power regulation/data "smoothing"/interference reduction.
+- 1x Nrf24-L01 2.4GHz transceiver with antenna (+ base module, if necessary) [ 0.0009 - 15mA ]
 - 1x ESP8266-12F WiFi module/microprocessor [ 0.01 - 170mA ]
-- 1x 0.9" 128x32 OLED I2C Display [ 1 - 12mA ] (Will be disabled unless wake button is pressed)
-- 1x Adjustable step down converter => ~4.5V to 3.3V [ Advertised efficiency: 97% expected efficiency: 80-90% ]
+- 1x 0.9" 128x32 OLED I2C Display [ 0 - 12mA ] (Will be disabled unless wake button is pressed)
+- 1x Adjustable step down converter => ~4.5V to 3.3V [ Advertised efficiency: 97% expected efficiency: 90% ]
 - 3x AA Battery + Holder => connected in series to reach ~4.5V [ 400 - 2400mAh (* ~0.9 because of efficiency of step down converter) ]
 - 1x 2-Position power switch
 - 1x momentary push button => Wake display / GUI input
@@ -20,9 +19,7 @@ Realistic battery-runtime:   (1.6h + 25.7h)  / 2                     = ~13.7h
 ## Configuration:
 I expect a range of 400-700m between two of the Nrf24 chips and a range of ~8m for the ESP8266s. The idea is to provide a (pretty slow) LAN network by connecting the Nrf24s with each other and using the ESPs, which would each be physically connected to a NRF, as access points for regular WiFi devices. I expect a data transfer speed of around 1-2mBit.
 
-https://tmrh20.github.io/RF24Mesh<br>
 https://tmrh20.github.io/RF24Network<br>
-https://tmrh20.github.io/RF24Mesh<br>
 
 ![Diagram](media/diagram.png)
 
@@ -61,12 +58,13 @@ Watch out for blocking operations in the libraries you use (e.g. `NRF24.waitAvai
 A great tool for developing with the ESP8266 is **PlatformIO**.<br>
 
 ## References/Resources:
+https://tmrh20.github.io/RF24
 https://tmrh20.github.io/RF24Network<br>
 https://tmrh20.github.io/RF24Mesh (Probably not going to use this lib - I want a flat network)
 
 https://en.wikipedia.org/wiki/Serial_Peripheral_Interface<br>
-https://techtutorialsx.com/2017/01/21/esp8266-watchdog-functions/<br>
-https://platformio.org/<br>
+https://techtutorialsx.com/2017/01/21/esp8266-watchdog-functions<br>
+https://platformio.org<br>
 https://docs.platformio.org/en/latest/boards/espressif8266/nodemcuv2.html?highlight=nodemcu<br>
 https://easyeda.com<br>
 "dia" - Diagram tool
