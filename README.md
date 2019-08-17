@@ -1,6 +1,6 @@
 # nRF24-L01 + ESP8266 Mesh Network
 
-## I plan on building a mesh network consisting of four nodes, each equipped with the following hardware:
+## I am building a mesh network consisting of multiple nodes, each equipped with the following hardware:
 - 1x Nrf24-L01 2.4GHz transceiver with antenna (+ base module, if necessary) [ 0.0009 - 15mA ]
 - 1x ESP8266-12F WiFi module/microprocessor [ 0.01 - 170mA ]
 - 1x 0.9" 128x32 OLED I2C Display [ 0 - 12mA ] (Will be disabled unless wake button is pressed)
@@ -17,7 +17,13 @@ Optimistic battery-runtime:  (2400mAh * 0.9) / (4mA + 80mA + 0mA)    = ~25.7h<br
 Realistic battery-runtime:   (1.6h + 25.7h)  / 2                     = ~13.7h
 
 ## Configuration:
-I expect a range of 400-700m between two of the Nrf24 chips and a range of ~8m for the ESP8266s. The idea is to provide a (pretty slow) LAN network by connecting the Nrf24s with each other and using the ESPs, which would each be physically connected to a NRF, as access points for regular WiFi devices. I expect a data transfer speed of around 1-2mBit.
+I expect a range of 400-700m between two of the Nrf24 chips and a range of ~8m for the ESP8266s. 
+
+### Plan A:
+The idea is to provide a (pretty slow) LAN network by connecting the Nrf24s with each other and using the ESPs, which would each be physically connected to a NRF, as access points for regular WiFi devices. I expect a data transfer speed of around 1-2mBit.
+
+### Plan B:
+Configure the network as a decentralized chat app with some cool features like file exchange and a node tree, all running on webservers on the ESPs and using either the nRFs or the ESPs (whichever has better connectivity) for data transfer.
 
 https://tmrh20.github.io/RF24Network<br>
 
