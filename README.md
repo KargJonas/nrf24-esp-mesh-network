@@ -83,7 +83,6 @@ https://easyeda.com<br>
 ![On a breadboard](media/testing-setup.jpg)
 
 ## ToDo:
-- Plan layout in case for min interference
 - What stuff on display?
   - Connection
     - How many nodes
@@ -92,3 +91,4 @@ https://easyeda.com<br>
   - Disable WDT
   - Disable ADC
   - Automatic Range/Packet size adjustment
+- Actually write the software
