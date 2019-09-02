@@ -1,79 +1,61 @@
-#include "SSD1306Wire.h"
-#include <ESP8266WebServer.h>
-#include <ESP8266WiFi.h>
-
 #define DISPLAY_SLEEP_AFTER 20000
-#define WAKE_BUTTON 16
 #define AP_NAME "esp1"
 #define AP_PASS NULL
+// #define RADIO_NUMBER 0
+#define RADIO_NUMBER 1
 
-typedef std::function<void(void)> HandlerFunction;
+#include "./display.h"
+#include "./radio.h"
+#include "./server.h"
 
-SSD1306Wire display(0x3c, 4, 5, GEOMETRY_128_32);
-ESP8266WebServer server(80);
-String ip;
-
-int wakeTime = 0;
-bool displayOn = true;
-bool wakeButtonPressed = false;
-
-void handleRoute(
-    String route,
-    String response,
-    String responseType = "text/html",
-    uint8 responseStatus = 200)
-{
-  server.on(route, [response, responseType, responseStatus]() {
-    server.send(responseStatus, responseType, response);
-  });
-}
-
-struct Data {
-  long runtime;
-  String ip;
-  byte connectedNodes[][6];
-};
-
-void
-setup()
+void setup()
 {
   // ESP.wdtDisable(); // Power saving
-  pinMode(WAKE_BUTTON, INPUT);
 
-  display.init();
-  display.setFont(ArialMT_Plain_16);
-
-  WiFi.softAP(AP_NAME, AP_PASS);
+  displaySetup();
+  serverSetup();
+  radioSetup();
 
   handleRoute("/", "<h1>You are connected!</h1>");
-  server.begin();
 
-  delay(1000);
-}
-
-void displayWakeRoutine()
-{
-  wakeButtonPressed = digitalRead(WAKE_BUTTON);
-
-  if (displayOn) {
-    if (millis() - wakeTime > DISPLAY_SLEEP_AFTER) {
-      displayOn = false;
-      display.displayOff();
-    }
-  } else if (wakeButtonPressed) {
-    displayOn = true;
-    wakeTime = millis();
-    display.displayOn();
-  }
+  displayPrint("Setup done");
 }
 
 void loop()
 {
   displayWakeRoutine();
 
-  display.clear();
-  display.drawString(0, 0, ip);
-  display.display();
-
   server.handleClient();
+
+  radio.stopListening();
+  unsigned long start_time = micros();
+
+  if (!radio.write(&start_time, sizeof(unsigned long))) {
+    display.drawString(0, 0, "Failed");
+  }
+
+  radio.startListening();
+
+  unsigned long started_waiting_at = micros();
+  boolean timeout = false;
+
+  while (!radio.available()) {
+    yield();
+
+    if (micros() - started_waiting_at > 200000) {
+      timeout = true;
+      break;
+    }
+  }
+
+  if (timeout) {
+    // displayPrint("TIMEOUT");
+    return;
+  }
+
+  unsigned long got_time;
+  radio.read(&got_time, sizeof(unsigned long));
+  unsigned long end_time = micros();
+
+  // displayPrint((String)(end_time - start_time));
 }

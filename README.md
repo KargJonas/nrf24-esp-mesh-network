@@ -8,9 +8,10 @@
 - 3x AA Battery + Holder => connected in series to reach ~4.5V [ 400 - 2400mAh (* ~0.9 because of efficiency of step down converter) ]
 - 1x 2-Position power switch
 - 1x momentary push button => Wake display / GUI input
+- 1x Custom PCB
 
-Expected cost for 4pcs: ~30\$.<br>
-Actual cost: 34\$. (All components were ordered from AliExpress.com)<br>
+Expected cost for 4pcs: ~34\$.<br>
+Actual cost: 36\$. (Components were ordered from AliExpress.com and JLCPCB.com)<br>
 
 Pessimistic battery-runtime: (400mAh * 0.8)  / (15mA + 170mA + 12mA) = ~1.6h<br>
 Optimistic battery-runtime:  (2400mAh * 0.9) / (4mA + 80mA + 0mA)    = ~25.7h<br>
