@@ -18,7 +18,7 @@ Optimistic battery-runtime:  (2400mAh * 0.9) / (4mA + 80mA + 0mA)    = ~25.7h<br
 Realistic battery-runtime:   (1.6h + 25.7h)  / 2                     = ~13.7h
 
 ## Configuration:
-I expect a range of 400-700m between two of the Nrf24 chips and a range of ~8m for the ESP8266s. 
+I expect a range of 400-700m between two of the Nrf24 chips and a range of ~8m for the ESP8266s.
 
 ### Plan A:
 The idea is to provide a (pretty slow) LAN network by connecting the Nrf24s with each other and using the ESPs, which would each be physically connected to a NRF, as access points for regular WiFi devices. I expect a data transfer speed of around 1-2mBit.
@@ -55,7 +55,7 @@ The nRFs are connected to the ESPs via the hardware SPI interface.<br>
 <b>🚨 IMPORTANT: IO15 (D8 on the NodeMCU) must pulled low using a ~4.75k Ohm resistor to enable hardware serial. 🚨</b>
 
 ```cpp
-// IO 2 and 15 are the "interesting" pins.
+// Instantiate a RF24 radio object.
 RF24 radio(2, 15);
 ```
 
