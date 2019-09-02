@@ -17,6 +17,8 @@ Pessimistic battery-runtime: (400mAh * 0.8)  / (15mA + 170mA + 12mA) = ~1.6h<br>
 Optimistic battery-runtime:  (2400mAh * 0.9) / (4mA + 80mA + 0mA)    = ~25.7h<br>
 Realistic battery-runtime:   (1.6h + 25.7h)  / 2                     = ~13.7h
 
+![Two Nodes](media/two-nodes.jpg)
+
 ## Configuration:
 I expect a range of 400-700m between two of the Nrf24 chips and a range of ~8m for the ESP8266s.
 
@@ -79,6 +81,8 @@ https://easyeda.com<br>
 ## Prototype Schematics and PCB
 ![Schematics](media/schematic.png)
 ![PCB](media/pcb.png)
+![The produced piece](media/pcb-done.jpg)
+
 ### On a breadboard
 ![On a breadboard](media/testing-setup.jpg)
 
